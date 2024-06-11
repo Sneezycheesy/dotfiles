@@ -1,0 +1,71 @@
+[
+  {
+    "name": "i3",
+    "description": "Default window manager, tiling"
+  },
+  {
+    "name": "i3lock",
+    "description": "Screen locker for i3wm"
+  },
+  {
+    "name": "scrot",
+    "description": "Lightweight screenshot tool"
+  },
+  {
+    "name": "picom",
+    "description": "Lightweight compositor for X"
+  },
+  {
+    "name": "kitty",
+    "description": "Default terminal emulator"
+  },
+  {
+    "name": "rofi",
+    "description": "simple app launcher"
+  },
+  {
+    "name": "nitrogen",
+    "description": "Allow setting wallpaper on X"
+  },
+  {
+    "name": "xorg-xinit",
+    "description": "Allow starting X using startx and .xinitrc file"
+  },
+  {
+    "name": "xorg-server",
+    "description": "Server for xorg X"
+  },
+  {
+    "name": "xorg-setxkbmap",
+    "description": "Set keyboard layout on X server"
+  },
+  {
+    "name": "imagemagick",
+    "description": "Allow manipulating images for the lock screen"
+  },
+  {
+    "name": "pipewire",
+    "description": "Audio drivers"
+  },
+  {
+    "name": "pipewire-pulse",
+    "description": "Pipewire pulse implementation"
+  },
+  {
+    "name": "pipewire-alsa",
+    "description": "Pipewire alsa implementation"
+  },
+  {
+    "name": "pulseaudio-control",
+    "description": "Tool to easily read pulse volumes from status bars",
+    "repo": "AUR"
+  },
+  {
+    "name": "alsa-utils",
+    "description": "Alsa audio drivers"
+  },
+  {
+    "name": "polybar",
+    "description": "Fully configurable statusbar"
+  }
+]
