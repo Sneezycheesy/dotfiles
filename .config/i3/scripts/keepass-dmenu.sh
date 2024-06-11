@@ -1,6 +1,6 @@
 #!/bin/sh
 
-m() { dmenu_run $@ ;}
+m() { rofi -dmenu -i $@ ;}
 
 clip_username() {
   echo "$dbpass" | keepassxc-cli show "$db" "$entry" | grep 'UserName:' | \

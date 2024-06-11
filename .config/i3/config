@@ -41,11 +41,13 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
+# Source volum control
+bindsym $modm+XF86AudioRaiseVolume exec --no-startup-id pactl set-source-volume @DEFAULT_SOURCE@ +1% && $refresh_i3status
+bindsym $modm+XF86AudioLowerVolume exec --no-startup-id pactl set-source-volume @DEFAULT_SOURCE@ -1% && $refresh_i3status
+bindsym $modm+XF86AudioMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up h 
@@ -72,7 +74,7 @@ bindsym $alt+Control+l exec $scriptDir/lock.sh
 # start dmenu (a program launcher)
 #bindsym $modm+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
- bindsym $modm+d exec "rofi -combi-modi window,drun,ssh -theme solarized -font 'hack 12' -show run"
+ bindsym $modm+d exec "rofi -show run"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindsym $modm+d exec --no-startup-id i3-dmenu-desktop
@@ -221,24 +223,26 @@ hide_edge_borders both
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 set $bar_color #0C1628
-bar {
-  status_command i3status
-  position top
-  colors {
-    background $bar_color
-    statusline #FFFFFF
-    separator #333333 
+#bar {
+#  status_command i3status
+#  position top
+#  colors {
+#    background $bar_color
+#    statusline #FFFFFF
+#    separator #333333 
+#
+#    focused_workspace #5AFC5A #5AFC5A $bar_color
+#    inactive_workspace #333333 #333333 #666666
+#    active_workspace #75B1B5 #75B1B75 $bar_color
+#    urgent_workspace #c93c32 #c93c32 $bar_color
+#  }
+#  padding 2px 0 2px
+#  font pango:DejaVu Sans Bold 10
+#  separator_symbol "|"
+#  workspace_min_width 25
+#}
+exec ~/.config/polybar/scripts/load_polybar.sh
 
-    focused_workspace #5AFC5A #5AFC5A $bar_color
-    inactive_workspace #333333 #333333 #666666
-    active_workspace #75B1B5 #75B1B75 $bar_color
-    urgent_workspace #c93c32 #c93c32 $bar_color
-  }
-  padding 2px 0 2px
-  font pango:DejaVu Sans Bold 10
-  separator_symbol "|"
-  workspace_min_width 25
-}
 exec nitrogen --restore
 exec picom
 exec $scriptDir/../screenlayouts/default.sh
