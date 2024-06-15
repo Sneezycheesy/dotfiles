@@ -1,2 +1,3 @@
 #!/usr/bin/bash
-xrandr --output Virtual-1 --mode 1920x1080
+xrandr --setmonitor Virtual-1 1920/0x1080/0+0+0 HDMI-A-0
+xrandr --setmonitor Virtual-2 1920/0x1080/0+1920+0 HDMI-A-0
