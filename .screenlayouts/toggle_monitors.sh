@@ -7,7 +7,7 @@ function toggle_display {
     xrandr --delmonitor $VIRTUAL_DISPLAY_1
     xrandr --delmonitor $VIRTUAL_DISPLAY_2
   else 
-    sh ~/.screenlayouts/default.sh
+    sh $(dirname $0)/default.sh
   fi
 }
 
