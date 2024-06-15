@@ -1,7 +1,14 @@
 #!/usr/bin/bash
-if [[ ! -z "$(xrandr --listmonitors | grep Virtual-[12])" ]]; then 
-    xrandr --delmonitor Virtual-1
-    xrandr --delmonitor Virtual-2
-else 
+VIRTUAL_DISPLAY_1="Virtual-1"
+VIRTUAL_DISPLAY_2="Virtual-2"
+
+function toggle_display {
+  if [[ "$1" == "game" || ! -z "$(xrandr --listmonitors | grep Virtual-[12])" ]]; then 
+    xrandr --delmonitor $VIRTUAL_DISPLAY_1
+    xrandr --delmonitor $VIRTUAL_DISPLAY_2
+  else 
     sh ~/.screenlayouts/default.sh
-fi
+  fi
+}
+
+toggle_display $1

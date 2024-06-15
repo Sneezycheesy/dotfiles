@@ -67,5 +67,10 @@
   {
     "name": "polybar",
     "description": "Fully configurable statusbar"
+  },
+  {
+    "name": "ttf-mononoki-nerd",
+    "description": "Font for displaying icons",
+    "repo": "extra"
   }
 ]
