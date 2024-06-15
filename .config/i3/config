@@ -66,7 +66,7 @@ tiling_drag modifier titlebar
 bindsym $modm+Return exec $scriptDir/terminal.sh
 
 # kill focused window
-bindsym $modm+Shift+q kill
+bindsym $modm+Shift+c kill
 
 # lock the screen
 bindsym $alt+Control+l exec $scriptDir/lock.sh
@@ -179,7 +179,7 @@ bindsym $modm+Shift+9 move container to workspace number $ws9
 bindsym $modm+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
-bindsym $modm+Shift+c reload
+bindsym $modm+Shift+KP_Subtract reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $modm+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -213,11 +213,13 @@ mode "resize" {
 bindsym $modm+r mode "resize"
 
 # Window decoration
+set $primary_color #D8A704
+set $secondary_color #D83C04
 default_border pixel 3
 default_floating_border pixel 3
 gaps outer 5
 gaps inner 2
-client.focused #5AFC5AFF #FFFFFF00 #FFFFFF00 #FF0000 #5AFC5A
+client.focused $primary_color #FFFFFF00 #FFFFFF00 $secondary_color $primary_color
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
