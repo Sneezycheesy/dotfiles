@@ -7,6 +7,7 @@ export MONITOR_1_WIDTH=""
 export MONITOR_1_HEIGHT=""
 export MONITOR_2_WIDTH=""
 export MONITOR_2_HEIGHT=""
+export KEEPASS_DATABASE=~/Documents/Confidential/vault.kdbx
 
 
 session=${1:-xmonad}

@@ -264,8 +264,17 @@ bindsym $modm+$alt+f exec $browser
 # start a terminal
 bindsym $modm+Return exec $scriptDir/terminal.sh
 
+# bindsym Print exec $scriptDir/screenshot.sh current
+bindsym --release Print exec $scriptDir/screenshot.sh select
+bindsym $modm+Print exec $scriptDir/screenshot.sh full
+bindsym Control+Print exec $scriptDir/screenshot.sh current
+bindsym Alt_R+Print exec $scriptDir/screenshot.sh current_window
+bindsym Shift+Print exec $scriptDir/screenshot.sh screen0
+bindsym Shift+$alt+Print exec $scriptDir/screenshot.sh screen1
+
 # copy login credentials using keepassxc and rofi
 bindsym $modm+p exec $scriptDir/keepass.sh -d ${KEEPASS_DATABASE}
+
 
 #################################################################################
 # Startup applications and scripts
