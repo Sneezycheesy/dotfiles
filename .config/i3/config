@@ -246,7 +246,7 @@ exec ~/.config/polybar/scripts/load_polybar.sh
 
 exec nitrogen --restore
 exec picom
-exec $scriptDir/../screenlayouts/default.sh
+exec $scriptDir/../.screenlayouts/default.sh
 
 # Send specific applications to the scratchpad
 # Things like e-mail, game launcher, terminal
