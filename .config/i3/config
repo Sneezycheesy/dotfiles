@@ -264,6 +264,9 @@ bindsym $modm+$alt+f exec $browser
 # start a terminal
 bindsym $modm+Return exec $scriptDir/terminal.sh
 
+# Toggle between 1 and multiple monitor setup
+bindsym $modm+Shift+m exec ~/.screenlayouts/toggle_monitors.sh
+
 # bindsym Print exec $scriptDir/screenshot.sh current
 bindsym --release Print exec $scriptDir/screenshot.sh select
 bindsym $modm+Print exec $scriptDir/screenshot.sh full
