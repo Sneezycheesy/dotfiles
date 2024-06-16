@@ -1,6 +1,6 @@
 #!/bin/sh
 
-m() { rofi -dmenu -i $@ ;}
+m() { rofi -dmenu -i "$@" ;}
 
 clip_username() {
   echo "$dbpass" | keepassxc-cli show "$db" "$entry" | grep 'UserName:' | \
@@ -189,7 +189,7 @@ else
   echo "$dbpass" | keepassxc-cli ls "$db" | grep -Ev 'Enter|?*/' | sort >"$CACHE/tmp"
   elements_num=$([ "$(wc -l < "$CACHE/tmp")" -gt 20 ] && echo 20)
 
-  entry=$(m -p "Entry list" -l "$elements_num" -width 350 < "$CACHE/tmp")
+  entry=$(m -p "Entry list" -width 350 < "$CACHE/tmp")
 
   if ! grep -q "$entry" "$CACHE/tmp"; then
     add_entry || exit 1
