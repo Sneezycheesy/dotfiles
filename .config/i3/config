@@ -82,8 +82,12 @@ bindsym $alt+Control+l exec $scriptDir/lock.sh
 #################################################################################
 # Change monitor focus
 # Based on MONITOR_# variables exported in either .bashrc or .xinitrc
-bindsym $modm+q exec $scriptDir/focus_monitor.sh 1 
-bindsym $modm+w exec $scriptDir/focus_monitor.sh 2
+bindsym $modm+q exec $scriptDir/focus_monitor.sh 1 focus
+bindsym $modm+w exec $scriptDir/focus_monitor.sh 2 focus
+
+bindsym $modm+Shift+q exec $scriptDir/focus_monitor.sh 1 move
+bindsym $modm+Shift+w exec $scriptDir/focus_monitor.sh 2 move
+
 
 # change focus
 bindsym $modm+$left focus left
