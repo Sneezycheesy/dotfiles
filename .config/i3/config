@@ -127,16 +127,16 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym $modm+1 exec --no-startup-id $scriptDir/change-workspace.sh 1 
-bindsym $modm+2 exec --no-startup-id $scriptDir/change-workspace.sh 2
-bindsym $modm+3 exec --no-startup-id $scriptDir/change-workspace.sh 3
-bindsym $modm+4 exec --no-startup-id $scriptDir/change-workspace.sh 4
-bindsym $modm+5 exec --no-startup-id $scriptDir/change-workspace.sh 5
-bindsym $modm+6 exec --no-startup-id $scriptDir/change-workspace.sh 6
-bindsym $modm+7 exec --no-startup-id $scriptDir/change-workspace.sh 7
-bindsym $modm+8 exec --no-startup-id $scriptDir/change-workspace.sh 8
-bindsym $modm+9 exec --no-startup-id $scriptDir/change-workspace.sh 9
-bindsym $modm+0 exec --no-startup-id $scriptDir/change-workspace.sh 10
+bindsym $modm+1 exec --no-startup-id $scriptDir/change-workspace.sh $ws1 
+bindsym $modm+2 exec --no-startup-id $scriptDir/change-workspace.sh $ws2
+bindsym $modm+3 exec --no-startup-id $scriptDir/change-workspace.sh $ws3
+bindsym $modm+4 exec --no-startup-id $scriptDir/change-workspace.sh $ws4
+bindsym $modm+5 exec --no-startup-id $scriptDir/change-workspace.sh $ws5
+bindsym $modm+6 exec --no-startup-id $scriptDir/change-workspace.sh $ws6
+bindsym $modm+7 exec --no-startup-id $scriptDir/change-workspace.sh $ws7
+bindsym $modm+8 exec --no-startup-id $scriptDir/change-workspace.sh $ws8
+bindsym $modm+9 exec --no-startup-id $scriptDir/change-workspace.sh $ws9
+bindsym $modm+0 exec --no-startup-id $scriptDir/change-workspace.sh $ws10
 
 # move focused container to workspace
 bindsym $modm+Shift+1 move container to workspace number $ws1
