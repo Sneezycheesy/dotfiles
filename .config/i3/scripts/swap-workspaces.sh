@@ -1,15 +1,25 @@
 #!/usr/bin/env bash
     # requires jq
     
-    DISPLAY_CONFIG=($(i3-msg -t get_outputs | jq -r '.[]|"\(.name):\(.current_workspace)"'))
-    
-    for ROW in "${DISPLAY_CONFIG[@]}"
-    do
-        IFS=':'
-        read -ra CONFIG <<< "${ROW}"
-        if [ "${CONFIG[0]}" != "null" ] && [ "${CONFIG[1]}" != "null" ]; then
-            echo "moving ${CONFIG[1]} right..."
-            i3-msg -- workspace --no-auto-back-and-forth "${CONFIG[1]}"
-            i3-msg -- move workspace to output right	
+WORKSPACES=($(i3-msg -t get_workspaces | jq -r '.[]|"\(.name):\(.output):\(.focused)"'))
+
+for ROW in "${WORKSPACES[@]}"
+do
+    IFS=':'
+    read -ra WORKSPACE <<< $ROW
+    if [[ ${WORKSPACE[0]} != "null" ]]; then
+        if [[ "${WORKSPACE[0]}" == "$1" ]]; then
+            TARGET_WORKSPACE_OUTPUT=${WORKSPACE[1]}
         fi
-    done
+        if [[ $WORKSPACE[0] != $1 && ${WORKSPACE[2]} == "true" ]]; then
+            START_WS=${WORKSPACE[0]}
+            CURRENT_OUTPUT=${WORKSPACE[1]}
+        fi
+    fi
+done
+
+i3-msg move workspace to output $TARGET_WORKSPACE_OUTPUT
+i3-msg workspace $1
+i3-msg move workspace to output $CURRENT_OUTPUT
+sleep 0.2
+i3-msg focus output $CURRENT_OUTPUT

@@ -16,7 +16,7 @@ change_workspace() {
         [ ${FOCUSED} == "true" ] && return 
         if [ "${VISIBLE}" == "true" ]; then
           sh ~/.config/i3/scripts/swap-workspaces.sh "$1"
-  	  return
+  	    return
         fi
       fi
     done
