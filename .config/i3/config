@@ -252,7 +252,7 @@ bindsym Menu [instance="chromium"] scratchpad show
 # Mail application
 for_window [title="t*T*hunderbird"] move scratchpad
 for_window [title="t*T*hunderbird"] resize set 1700 800
-bindym $modm+m [title="t*T*hunderbird"] scratchpad show
+bindsym $modm+m [title="t*T*hunderbird"] scratchpad show
 # Terminal
 for_window [title="term"] move scratchpad
 for_window [title="term"] floating enable
@@ -298,3 +298,5 @@ exec ~/.screenlayouts/toggle_monitors.sh
 exec nitrogen --restore
 # Launch Chromium instance for social media links
 exec chromium
+# Launch mail client
+exec thunderbird
