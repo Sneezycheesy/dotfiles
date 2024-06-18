@@ -46,7 +46,11 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym $modm+XF86AudioRaiseVolume exec --no-startup-id pactl set-source-volume @DEFAULT_SOURCE@ +1%
 bindsym $modm+XF86AudioLowerVolume exec --no-startup-id pactl set-source-volume @DEFAULT_SOURCE@ -1%
 bindsym $modm+XF86AudioMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
-
+# Change audio sink
+bindsym --release $modm+$alt+1 exec $scriptDir/volume.sh sink speakers
+bindsym --release $modm+$alt+2 exec $scriptDir/volume.sh sink headset
+# Change audio input
+bindsym $modm+Control+1 exec $scriptDir/volume.sh source headset
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up h 
