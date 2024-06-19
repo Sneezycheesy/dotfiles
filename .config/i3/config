@@ -11,6 +11,7 @@
 
 set $modm Mod4
 set $alt Mod1
+set $altgr Mod5
 set $scriptDir ~/.config/i3/scripts
 
 set $screen_width 960
@@ -279,7 +280,7 @@ bindsym $modm+Shift+m exec ~/.screenlayouts/toggle_monitors.sh
 bindsym --release Print exec $scriptDir/screenshot.sh select
 bindsym $modm+Print exec $scriptDir/screenshot.sh full
 bindsym Control+Print exec $scriptDir/screenshot.sh current
-bindsym Alt_R+Print exec $scriptDir/screenshot.sh current_window
+bindsym --release $altgr+Print exec $scriptDir/screenshot.sh current_window
 bindsym Shift+Print exec $scriptDir/screenshot.sh screen0
 bindsym Shift+$alt+Print exec $scriptDir/screenshot.sh screen1
 
