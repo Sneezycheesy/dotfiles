@@ -243,9 +243,8 @@ client.focused $primary_color #FFFFFF00 #FFFFFF00 $secondary_color $primary_colo
 # Set shortcuts for each application too
 #################################################################################
 # Game launcher
-for_window [title="l*L*utris"] move scratchpad
-for_window [title="l*L*utris"] floating disable
-bindsym Shift+Menu [title="Lutris"] scratchpad show
+for_window [instance="lutris"] move scratchpad
+bindsym Shift+Menu exec $scriptDir/lutris.sh
 # Social media tabs
 for_window [instance="chromium"] move scratchpad
 for_window [instance="chromium"] resize set 1200 800
@@ -255,9 +254,17 @@ for_window [title="t*T*hunderbird"] move scratchpad
 for_window [title="t*T*hunderbird"] resize set 1700 800
 bindsym $modm+m [title="t*T*hunderbird"] scratchpad show
 # Terminal
-for_window [title="term"] move scratchpad
-for_window [title="term"] floating enable
-for_window [title="term"] resize set $screen_width*0.6 800
+for_window [title="kitty-terminal-emulator"] move scratchpad
+for_window [title="kitty-terminal-emulator"] floating enable
+for_window [title="kitty-terminal-emulator"] resize set $screen_width*0.6 800
+bindsym $modm+Return exec $scriptDir/terminal.sh
+# Steam
+for_window [title="Steam"] move scratchpad
+for_window [title="Steam"] floating enable
+for_window [title="Steam"] resize set $screen_width*0.7 900
+bindsym $modm+s [title="Steam"] scratchpad show
+
+for_window [title="Euro Truck Simulator 2"] floating enable
 
 
 #################################################################################
@@ -270,8 +277,6 @@ set $browser "firefox"
 # Keybindings
 bindsym $modm+$alt+f exec $browser
 
-# start a terminal
-bindsym $modm+Return exec $scriptDir/terminal.sh
 
 # Toggle between 1 and multiple monitor setup
 bindsym $modm+Shift+m exec ~/.screenlayouts/toggle_monitors.sh
@@ -301,3 +306,11 @@ exec nitrogen --restore
 exec chromium
 # Launch mail client
 exec thunderbird
+# Steam - gets sent to scratchpad so just launch in "foreground"
+exec steam -silent
+# Nextcloud
+exec nextcloud --background
+# Set default cursor correctly  
+exec xsetroot -cursor_name left_ptr
+# Set correct keyboard layout
+exec setxkbmap us -variant alt-intl
