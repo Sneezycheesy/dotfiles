@@ -2,11 +2,10 @@
 -- install xmobar with these flags: --flags="with_alsa" --flags="with_mpd" --flags="with_xft"  OR --flags="all_extensions"
 -- you can find weather location codes here: http://weather.noaa.gov/index.html
 Config
-  { font = "Share Tech Mono 40:antialias=true:hinting=true",
+  { font = "Share Tech Mono 15",
     additionalFonts =
-      [ "Mononoki Nerd Font:size=40:antialias=true:hinting=true",
-        "Mononoki Nerd Font:size=40:antialias=true:hinting=true",
-        "FontAwesome:style=Regular:size=40"
+      [ "Mononoki Nerd Font 15",
+        "FontAwesome 15"
       ],
     bgColor = "#0c1628",
     fgColor = "#ffffff",
