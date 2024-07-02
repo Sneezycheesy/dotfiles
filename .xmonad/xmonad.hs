@@ -305,6 +305,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
       ((modm, xK_k), windows W.focusUp),
       -- Move focus to the master window
       ((modm, xK_m), windows W.focusMaster),
+      ((modm .|. shift, xK_m), spawn "~/.screenlayouts/toggle_monitors.sh"),
       -- Swap the focused window and the master window
       -- ((modm, xK_Return), windows W.swapMaster),
       -- Swap the focused window with the next window
@@ -628,7 +629,7 @@ myManageHook = do
       name      =? "Wine System Tray" --> delete,                             -- Close wine system tray as it's just a small rectangular overlay
       className      =? "mt - the dream.exe" --> unfloat]                               -- Sink the launcher so TERA can be rendered on top of it
       ++ [className =? game --> doFullFloat | game <- myGames]               -- Grab games from an array and make them all fullscreen
-      ++ [name =? steamGame --> (customFloating $ W.RationalRect 0.5 0.0 1 1) | steamGame <- steamGames])
+      ++ [name =? steamGame --> doFullFloat | steamGame <- steamGames])
       <+>
       namedScratchpadManageHook myScratchpads
       where
