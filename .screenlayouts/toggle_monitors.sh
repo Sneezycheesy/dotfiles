@@ -16,4 +16,5 @@ function toggle_display {
 }
 
 toggle_display $1
-~/.config/polybar/scripts/load_polybar.sh
+[[ ! -z $(ps -u $USER | grep -i "xmonad" | grep -v "grep") ]] && xmonad --restart
+[[ ! -z $(ps -f -u $USER | grep -i polybar | grep -v grep) ]] && ~/.config/polybar/scripts/load_polybar.sh
